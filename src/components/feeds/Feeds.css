@@ -1,0 +1,62 @@
+.Feeds .table thead th {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1;
+    padding: 5px;
+    letter-spacing: .75px;
+}
+
+.Feeds .table tbody th, .Feeds .table tbody td {
+    padding: 4px;
+}
+
+.news-details .title {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.news-details .small-text, .news-details span {
+    font-size: 12px;
+    color: #828282;
+}
+
+.news-details span strong {
+    color: #000000;
+    font-weight: 500;
+}
+
+.icon-caret-up {
+    color: #828282;
+    font-size: 18px;
+}
+
+.pagination {
+    color: #ff6600;
+    font-size: 14px;
+    font-weight: 500;
+}
+.pagination a {
+    cursor: pointer;
+}
+.pagination a.disabled {
+    color: #ff6600;
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+  }
+.cursor, i {
+    cursor: pointer;
+}
+@media only screen and (max-width: 750px) and (min-width: 300px) {
+    .Feeds .table thead th {    
+        font-size: 11px;
+        line-height: 1;
+    }
+
+    .news-details {
+        font-size: 15px;
+        line-height: 1.2;
+    }
+}
