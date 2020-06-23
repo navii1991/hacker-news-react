@@ -12,8 +12,9 @@ function Feeds() {
     useEffect(() => { 
         const cachedData = sessionStorage.getItem(pageNumber);
         if(cachedData) {
-           setNewsData(JSON.parse(cachedData));
-           createChartData(JSON.parse(cachedData));
+            const parsedData = JSON.parse(cachedData);
+           setNewsData([...parsedData]);
+           createChartData(parsedData);
            console.log("cached",JSON.parse(cachedData))
         } else {
             axios.get('https://hn.algolia.com/api/v1/search?page=' + pageNumber)
@@ -32,11 +33,13 @@ function Feeds() {
     }, [pageNumber])
 
     const createChartData = (data)=>{
+        console.log(data);
         const chartDt = {};
         for (let x of data) {
             chartDt[x.objectID] = x.points
         }
         setChartData({...chartDt})
+        console.log(chartData)
     }
 
     const setPreviousPageNumber = (pageNo) => {
@@ -51,7 +54,7 @@ function Feeds() {
         const filteredNewsData = updatedNewsData.filter((news)=>news.objectID !== newsId)
         sessionStorage.setItem(pageNumber, JSON.stringify(filteredNewsData));
         setNewsData([...filteredNewsData]);
-        setChartData(filteredNewsData);
+        createChartData(filteredNewsData);
     }
    
     const upVoteCount = (newsId) => {
