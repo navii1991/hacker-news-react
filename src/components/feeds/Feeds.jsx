@@ -16,7 +16,7 @@ function Feeds() {
            createChartData(JSON.parse(cachedData));
            console.log("cached",JSON.parse(cachedData))
         } else {
-            axios.get('http://hn.algolia.com/api/v1/search?page=' + pageNumber)
+            axios.get('https://hn.algolia.com/api/v1/search?page=' + pageNumber)
                 .then(function (response) {
                     console.log(response.data.hits);
                     const data = response.data.hits;
